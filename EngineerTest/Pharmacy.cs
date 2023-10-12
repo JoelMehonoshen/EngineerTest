@@ -11,7 +11,7 @@ public class Pharmacy : IPharmacy
         return drug;
     }
 
-    public IEnumerable<IDrug> UpdateDrugList()
+    public IEnumerable<IDrug> UpdateBenefitValue()
     {
         for (var i = 0; i < _drugs.Count; i++)
         {

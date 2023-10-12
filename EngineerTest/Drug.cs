@@ -78,24 +78,27 @@ public class Drug : IDrug
                     Benefit += 2;
                 else if (ExpiresIn <= 5)
                     Benefit += 3;
-               
+                if (Benefit > 50) { Benefit = 50; }
             }
-            
         }
         // Benefit drops to 0 after expiration
         else Benefit = 0;
         // Decrease expiresIn
-        ExpiresIn--; 
+        ExpiresIn--;
     }
 
     // Handle unknown drugs, decrease both expiresIn and Benefit
     private void HandleUnknownDrug()
     {
-        ExpiresIn--;
-        if (Benefit < 50)
+        if (Benefit > 0)
         {
-            Benefit--;
+            if(ExpiresIn > 0)
+            {
+                Benefit--;
+            }
+            else Benefit-=2;
+            if (Benefit < 0) { Benefit = 0;}
         }
-        else Benefit = 50;
-        }
+        ExpiresIn--;
     }
+}
