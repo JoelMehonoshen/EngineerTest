@@ -47,6 +47,10 @@ public class Drug : IDrug
                 HandleFervex();
                 break;
 
+            case "Dafalgan":
+                HandleDafalgan();
+                break;
+
             default:
                 HandleUnknownDrug();
                 break;
@@ -84,6 +88,19 @@ public class Drug : IDrug
         // Benefit drops to 0 after expiration
         else Benefit = 0;
         // Decrease expiresIn
+        ExpiresIn--;
+    }
+    private void HandleDafalgan()
+    {
+        if (Benefit > 0)
+        {
+            if (ExpiresIn > 0)
+            {
+                Benefit-=2;
+            }
+            else Benefit -= 4;
+            if (Benefit < 0) { Benefit = 0; }
+        }
         ExpiresIn--;
     }
 
