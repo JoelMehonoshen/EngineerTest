@@ -46,6 +46,11 @@ public class Drug : IDrug
             case "Fervex":
                 HandleFervex();
                 break;
+
+            default:
+                HandleUnknownDrug();
+                break;
+
         }
     }
 
@@ -81,5 +86,12 @@ public class Drug : IDrug
         else Benefit = 0;
         // Decrease expiresIn
         ExpiresIn--; 
+    }
+
+    // Handle unknown drugs, decrease both expiresIn and Benefit
+    private void HandleUnknownDrug()
+    {
+        ExpiresIn--;
+        Benefit--;
     }
 }
