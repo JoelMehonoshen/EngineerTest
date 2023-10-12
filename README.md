@@ -4,7 +4,8 @@ You are a new developer in the team, and your first job is to add a feature to a
 
 ## System specifications
 
-Hi and welcome to the team. We are in the future, and MYP have extended its activities by opening a pharmacy. Your task is to add a new feature to our system so that we can begin distributing a new drug. 
+Hi and welcome to the team. We are in the future, and MYP have extended its activities by opening a pharmacy. 
+Your task is to add a new feature to our system so that we can begin distributing a new drug. 
 
 First an introduction to our system:
 
@@ -14,12 +15,13 @@ First an introduction to our system:
 
 But there is more:
 
-- Once the expiration date has passed, Benefit degrades twice as fast.
-- The Benefit of an item is never negative.
+- Once the expiration date has passed, Benefit degrades twice as fast. The Benefit of an item is never negative.
 - "Herbal Tea" actually increases in Benefit the older it gets. Benefit increases twice as fast after the expiration date.
 - The Benefit of an item is never more than 50.
 - "Magic Pill" never expires nor decreases in Benefit.
-- "Fervex", like Herbal Tea, increases in Benefit as its expiration date approaches. Benefit increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but Benefit drops to 0 after the expiration date.
+- "Fervex", like Herbal Tea, increases in Benefit as its expiration date approaches. 
+Benefit increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but 
+Benefit drops to 0 after the expiration date.
 
 We have recently signed a supplier of "Dafalgan". This requires an update to our system:
 
