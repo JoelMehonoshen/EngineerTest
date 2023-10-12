@@ -31,7 +31,7 @@ public class Drug : IDrug
         return HashCode.Combine(Name, ExpiresIn, Benefit);
     }
 
-    public void updateDrug()
+    public void UpdateDrug()
     {
         switch (Name)
         {

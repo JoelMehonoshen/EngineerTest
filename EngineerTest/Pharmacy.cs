@@ -11,11 +11,11 @@ public class Pharmacy : IPharmacy
         return drug;
     }
 
-    public IEnumerable<IDrug> UpdateBenefitValue()
+    public IEnumerable<IDrug> UpdateDrugList()
     {
         for (var i = 0; i < _drugs.Count; i++)
         {
-            _drugs[i].updateDrug();
+            _drugs[i].UpdateDrug();
         }
 
         return _drugs;

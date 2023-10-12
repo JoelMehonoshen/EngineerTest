@@ -14,7 +14,7 @@ try
     var log = new List<Drug[]?>();
 
     for (var elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
-        log.Add(JsonSerializer.Deserialize<Drug[]>(JsonSerializer.Serialize(pharmacy.UpdateBenefitValue())));
+        log.Add(JsonSerializer.Deserialize<Drug[]>(JsonSerializer.Serialize(pharmacy.UpdateDrugList())));
     }
 
     File.WriteAllText(

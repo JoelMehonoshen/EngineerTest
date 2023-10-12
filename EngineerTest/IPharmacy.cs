@@ -2,6 +2,6 @@ namespace EngineerTest;
 
 public interface IPharmacy
 {
-    IEnumerable<IDrug> UpdateBenefitValue();
+    IEnumerable<IDrug> UpdateDrugList();
     IDrug AddDrug(string name, int expiresIn, int benefit);
 }
