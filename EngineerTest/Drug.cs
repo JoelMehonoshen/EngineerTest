@@ -54,68 +54,81 @@ public class Drug : IDrug
             default:
                 HandleUnknownDrug();
                 break;
-
         }
     }
 
     private void HandleHerbalTea()
     {
-        // Increase Benefit
+        // Herbal Tea: Benefit increases over time, but up to a maximum of 50
         if (Benefit < 50)
         {
             if (ExpiresIn > 0)
                 Benefit++;
-            else { Benefit += 2; }
-            if (Benefit > 50) { Benefit = 50; }
+            else
+                Benefit += 2;
+
+            if (Benefit > 50)
+                Benefit = 50;
         }
+
         ExpiresIn--; // Decrease expiresIn
     }
+
     private void HandleFervex()
     {
-        if (ExpiresIn > 0)
+        // Fervex: Benefit rate increases as expiration date approaches, up to a maximum of 50
+        if (ExpiresIn > 0 && Benefit <= 50)
         {
-            if (Benefit < 50)
-            {
-                if (ExpiresIn > 10)
-                    Benefit += 1;
-                else if (ExpiresIn <= 10 && ExpiresIn > 5)
-                    Benefit += 2;
-                else if (ExpiresIn <= 5)
-                    Benefit += 3;
-                if (Benefit > 50) { Benefit = 50; }
-            }
+            if (ExpiresIn > 10)
+                Benefit += 1;
+            else if (ExpiresIn <= 10 && ExpiresIn > 5)
+                Benefit += 2;
+            else if (ExpiresIn <= 5)
+                Benefit += 3;
+
+            if (Benefit > 50)
+                Benefit = 50;
         }
-        // Benefit drops to 0 after expiration
-        else Benefit = 0;
-        // Decrease expiresIn
-        ExpiresIn--;
+        else
+        {
+            // Benefit drops to 0 after expiration
+            Benefit = 0;
+        }
+
+        ExpiresIn--; // Decrease expiresIn
     }
+
     private void HandleDafalgan()
     {
+        // Dafalgan: Benefit decreases over time at twice the regular rate, but not below 0
         if (Benefit > 0)
         {
             if (ExpiresIn > 0)
-            {
-                Benefit-=2;
-            }
-            else Benefit -= 4;
-            if (Benefit < 0) { Benefit = 0; }
+                Benefit -= 2;
+            else
+                Benefit -= 4;
+
+            if (Benefit < 0)
+                Benefit = 0;
         }
-        ExpiresIn--;
+
+        ExpiresIn--; // Decrease expiresIn
     }
 
-    // Handle unknown drugs, decrease both expiresIn and Benefit
     private void HandleUnknownDrug()
     {
+        // For unknown drugs: Benefit decreases over time, but not below 0
         if (Benefit > 0)
         {
-            if(ExpiresIn > 0)
-            {
+            if (ExpiresIn > 0)
                 Benefit--;
-            }
-            else Benefit-=2;
-            if (Benefit < 0) { Benefit = 0;}
+            else
+                Benefit -= 2;
+
+            if (Benefit < 0)
+                Benefit = 0;
         }
-        ExpiresIn--;
+
+        ExpiresIn--; // Decrease expiresIn
     }
 }
